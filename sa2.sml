@@ -1,17 +1,17 @@
 (* Solutions to SA2 assignment, Intro to ML *)
 
-(* Name:                                    *)
-(* Time spent on HW6:
+(* Name: Alex Salgado                       *)
+(* Time spent on HW6: 
 *)
 
-(* Collaborators and references:
+(* Collaborators and references: Copilot and Google Chrome for SML examples
 *)
 
 (* indicate planning to use the Unit testing module *)
 use "Unit.sml";
 
-(**** Problem A ****)
 
+(**** Problem A ****)
 fun mynull []       = true
   | mynull (_::_)   = false
 
@@ -20,16 +20,39 @@ val () =
     (fn () => mynull [])
     true
 
+val () =
+    Unit.checkExpectWith Bool.toString "mynull [] should be false"
+    (fn () => mynull ["a"])
+    false
+
+
 
 (**** Problem B ****)
-(*
-fun firstVowel _ = false
+fun firstVowel (#"a"::_) = true
+  | firstVowel (#"e"::_) = true
+  | firstVowel (#"i"::_) = true
+  | firstVowel (#"o"::_) = true
+  | firstVowel (#"u"::_) = true
+  | firstVowel (#"A"::_) = true
+  | firstVowel (#"E"::_) = true
+  | firstVowel (#"I"::_) = true
+  | firstVowel (#"O"::_) = true
+  | firstVowel (#"U"::_) = true
+  | firstVowel (#"U"::_) = true
+  | firstVowel _         = false
 
 val () =
     Unit.checkExpectWith Bool.toString "firstVowel 'ack' should be true"
     (fn () => firstVowel [#"a",#"c",#"k"])
     true
-*)
+
+val () =
+    Unit.checkExpectWith Bool.toString "firstVowel 'Car' should be false"
+    (fn () => firstVowel [#"C",#"a",#"r"])
+    false
+
+
+
 (**** Problem C ****)
 (*
 fun reverse xs = xs
@@ -40,6 +63,9 @@ val () =
   (fn () => reverse [1,2])
   [2,1]
 *)
+
+
+
 (**** Problem D ****)
 (*
 fun minlist _ = 0
@@ -55,24 +81,39 @@ val () =
   (fn () => minlist [1,2,3,4,0])
   0
 *)
+
+
+
 (**** Problem E ****)
 (*
 exception Mismatch
 
 fun zip _ = []
 *)
+
+
+
 (**** Problem F ****)
 (*
 fun concat xs = xs
 *)
+
+
+
 (**** Problem G ****)
 (*
 fun isDigit _    = false;
 *)
+
+
+
 (**** Problem H ****)
 (*
 fun isAlpha c = false
 *)
+
+
+
 (**** Problem I ****)
 (*
 fun svgCircle (cx, cy, r, fill) = "NOT IMPLEMENTED YET"
@@ -83,6 +124,9 @@ val () =
   (fn () => svgCircle (200, 300, 100, "red"))
   "<circle cx=\"200\" cy=\"300\" r=\"100\" fill=\"red\" />";
 *)
+
+
+
 (**** Problem J ****)
 (*
 fun partition p (x :: xs) = ([],[])
@@ -93,6 +137,8 @@ val () =
   (fn () => partition (fn x => x mod 2 = 0) [1, 2, 3, 4, 5])
   ([2, 4], [1, 3, 5]);
 *)
+
+
 
 (* Unit testing reporting *)
 
