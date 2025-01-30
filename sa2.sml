@@ -1,10 +1,10 @@
 (* Solutions to SA2 assignment, Intro to ML *)
 
-(* Name: Alex Salgado                       *)
-(* Time spent on HW6:                       *)
+(* Name: Alex Salgado                                        *)
+(* Time spent on HW6: <= 9hr inlcuding most reading/research *)
 
 (* Collaborators and references: Chapters 2-3 in ML for the Working Programmer,
-  Lecture on Folding, Google for SML examples, Copilot
+  Lecture on Folding, Google for SML examples, Copilot, ChatGPT
 *)
 
 (* indicate planning to use the Unit testing module *)
@@ -123,30 +123,38 @@ fun isAlpha c =
 
 
 
-
 (**** Problem I ****)
-(*
-fun svgCircle (cx, cy, r, fill) = "NOT IMPLEMENTED YET"
+fun svgCircle (cx, cy, r, fill) = 
+  "<circle cx=\"" ^ Int.toString cx ^
+  "\" cy=\"" ^ Int.toString cy ^
+  "\" r=\"" ^ Int.toString r ^
+  "\" fill=\"" ^ fill ^
+  "\" />";
 
 val () =
   Unit.checkExpectWith (fn x => x)
   "svgCircle (200, 300, 100, \"red\") should return <circle cx=\"200\" cy=\"300\" r=\"100\" fill=\"red\" />"
   (fn () => svgCircle (200, 300, 100, "red"))
   "<circle cx=\"200\" cy=\"300\" r=\"100\" fill=\"red\" />";
-*)
 
 
 
 (**** Problem J ****)
-(*
-fun partition p (x :: xs) = ([],[])
+fun partition _ [] = ([], [])
+  | partition p (x::xs) =
+      let val (yes, no) = partition p xs
+      in
+        if p x then
+          (x::yes, no)
+        else
+          (yes, x::no)
+      end;
 
 val () =
   Unit.checkExpectWith (fn (l1, l2) => "(" ^ Unit.listString Int.toString l1 ^ ", " ^ Unit.listString Int.toString l2 ^ ")")
   "partition (fn x => x mod 2 = 0) [1, 2, 3, 4, 5] should return ([2, 4], [1, 3, 5])"
   (fn () => partition (fn x => x mod 2 = 0) [1, 2, 3, 4, 5])
   ([2, 4], [1, 3, 5]);
-*)
 
 
 
