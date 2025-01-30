@@ -94,9 +94,7 @@ fun zip ([], []) = []
 
 
 (**** Problem F ****)
-(*
-fun concat xs = xs
-*)
+fun concat lists = foldl (fn (x, acc) => acc @ x) [] lists
 
 
 
