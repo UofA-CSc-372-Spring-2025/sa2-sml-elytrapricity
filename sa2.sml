@@ -1,14 +1,15 @@
 (* Solutions to SA2 assignment, Intro to ML *)
 
 (* Name: Alex Salgado                       *)
-(* Time spent on HW6: 
-*)
+(* Time spent on HW6:                       *)
 
-(* Collaborators and references: Copilot and Google Chrome for SML examples
+(* Collaborators and references: Chapters 2-3 in ML for the Working Programmer,
+  Lecture on Folding, Google for SML examples, Copilot
 *)
 
 (* indicate planning to use the Unit testing module *)
 use "Unit.sml";
+
 
 
 (**** Problem A ****)
@@ -38,7 +39,6 @@ fun firstVowel (#"a"::_) = true
   | firstVowel (#"I"::_) = true
   | firstVowel (#"O"::_) = true
   | firstVowel (#"U"::_) = true
-  | firstVowel (#"U"::_) = true
   | firstVowel _         = false
 
 val () =
@@ -54,15 +54,13 @@ val () =
 
 
 (**** Problem C ****)
-(*
-fun reverse xs = xs
+fun reverse (l:int list): int list = foldl (fn (x, acc) => x::acc) [] l
 
 val () =
   Unit.checkExpectWith (Unit.listString Int.toString) 
   "reverse [1,2] should be [2,1]"
   (fn () => reverse [1,2])
   [2,1]
-*)
 
 
 
