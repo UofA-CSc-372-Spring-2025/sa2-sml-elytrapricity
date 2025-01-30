@@ -54,7 +54,7 @@ val () =
 
 
 (**** Problem C ****)
-fun reverse (l:int list): int list = foldl (fn (x, acc) => x::acc) [] l
+fun reverse (l:'a list): 'a list = foldl (fn (x, acc) => x::acc) [] l
 
 val () =
   Unit.checkExpectWith (Unit.listString Int.toString) 
@@ -65,8 +65,10 @@ val () =
 
 
 (**** Problem D ****)
-(*
-fun minlist _ = 0
+exception emptyList
+
+fun minlist [] = raise emptyList
+  | minlist (x::xs) = foldl Int.min x xs;
 
 val () =
   Unit.checkExnWith Int.toString
@@ -78,7 +80,6 @@ val () =
   "minlist [1,2,3,4,0] should be 0"
   (fn () => minlist [1,2,3,4,0])
   0
-*)
 
 
 
