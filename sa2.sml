@@ -14,7 +14,7 @@ use "Unit.sml";
 
 (**** Problem A ****)
 fun mynull []       = true
-  | mynull (_::_)   = false
+  | mynull (_::_)   = false;
 
 val () =
     Unit.checkExpectWith Bool.toString "mynull [] should be true"
@@ -39,7 +39,7 @@ fun firstVowel (#"a"::_) = true
   | firstVowel (#"I"::_) = true
   | firstVowel (#"O"::_) = true
   | firstVowel (#"U"::_) = true
-  | firstVowel _         = false
+  | firstVowel _         = false;
 
 val () =
     Unit.checkExpectWith Bool.toString "firstVowel 'ack' should be true"
@@ -54,7 +54,7 @@ val () =
 
 
 (**** Problem C ****)
-fun reverse (l:'a list): 'a list = foldl (fn (x, acc) => x::acc) [] l
+fun reverse (l:'a list): 'a list = foldl (fn (x, acc) => x::acc) [] l;
 
 val () =
   Unit.checkExpectWith (Unit.listString Int.toString) 
@@ -89,19 +89,27 @@ exception Mismatch
 fun zip ([], []) = []
   | zip ([], _) = raise Mismatch
   | zip (_, []) = raise Mismatch
-  | zip (x::xs, y::ys) = (x, y) :: zip (xs, ys)
+  | zip (x::xs, y::ys) = (x, y) :: zip (xs, ys);
 
 
 
 (**** Problem F ****)
-fun concat lists = foldl (fn (x, acc) => acc @ x) [] lists
+fun concat lists = foldl (fn (x, acc) => acc @ x) [] lists;
 
 
 
 (**** Problem G ****)
-(*
-fun isDigit _    = false;
-*)
+fun isDigit #"0" = true
+  | isDigit #"1" = true
+  | isDigit #"2" = true
+  | isDigit #"3" = true
+  | isDigit #"4" = true
+  | isDigit #"5" = true
+  | isDigit #"6" = true
+  | isDigit #"7" = true
+  | isDigit #"8" = true
+  | isDigit #"9" = true
+  | isDigit _    = false;
 
 
 
