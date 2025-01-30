@@ -114,9 +114,13 @@ fun isDigit #"0" = true
 
 
 (**** Problem H ****)
-(*
-fun isAlpha c = false
-*)
+fun isAlpha c =
+  let val ordC = Char.ord c
+  in
+    (ordC >= Char.ord #"a" andalso ordC <= Char.ord #"z") orelse
+    (ordC >= Char.ord #"A" andalso ordC <= Char.ord #"Z")
+  end;
+
 
 
 
