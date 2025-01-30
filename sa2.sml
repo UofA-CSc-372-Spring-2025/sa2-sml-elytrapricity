@@ -65,9 +65,9 @@ val () =
 
 
 (**** Problem D ****)
-exception emptyList
+exception EmptyList
 
-fun minlist [] = raise emptyList
+fun minlist [] = raise EmptyList
   | minlist (x::xs) = foldl Int.min x xs;
 
 val () =
@@ -84,11 +84,12 @@ val () =
 
 
 (**** Problem E ****)
-(*
 exception Mismatch
 
-fun zip _ = []
-*)
+fun zip ([], []) = []
+  | zip ([], _) = raise Mismatch
+  | zip (_, []) = raise Mismatch
+  | zip (x::xs, y::ys) = (x, y) :: zip (xs, ys)
 
 
 
